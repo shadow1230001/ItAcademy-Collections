@@ -1,10 +1,11 @@
 package by.lyubin.flower.logick;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class FortuneTeller {
-    private HashMap<Integer, String> mass = new HashMap<Integer, String>();
+    private Map<Integer, String> mass = new HashMap<Integer, String>();
     private int chamomileCountLeaves = 3;
 
     public FortuneTeller() {
@@ -27,11 +28,14 @@ public class FortuneTeller {
         return random.nextInt(9) + 1;
     }
 
-    public String teller() {
+    public String teller()
+    {
+
 
         return this.mass.get(this.randomTeller());
 
     }
+
 }
 
 
