@@ -57,5 +57,32 @@ public class Flower {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Flower flower = (Flower) o;
+
+        if (title != null ? !title.equals(flower.title) : flower.title != null) return false;
+        if (bud != null ? !bud.equals(flower.bud) : flower.bud != null) return false;
+        return stem != null ? stem.equals(flower.stem) : flower.stem == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (bud != null ? bud.hashCode() : 0);
+        result = 31 * result + (stem != null ? stem.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Flower{" +
+                "title='" + title + '\'' +
+                ", bud=" + bud +
+                ", stem=" + stem +
+                '}';
+    }
 }

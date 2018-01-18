@@ -1,5 +1,7 @@
 package by.lyubin.flower.bean;
 
+import java.util.Arrays;
+
 public class Bud {
     private int size;
     private String color;
@@ -55,5 +57,35 @@ public class Bud {
             }
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Bud bud = (Bud) o;
+
+        if (size != bud.size) return false;
+        if (color != null ? !color.equals(bud.color) : bud.color != null) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(leaves, bud.leaves);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = size;
+        result = 31 * result + (color != null ? color.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(leaves);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Bud{" +
+                "size=" + size +
+                ", color='" + color + '\'' +
+                ", leaves=" + Arrays.toString(leaves) +
+                '}';
     }
 }
